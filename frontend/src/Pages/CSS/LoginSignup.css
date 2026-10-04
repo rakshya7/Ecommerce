@@ -1,0 +1,42 @@
+.loginsignup {
+  width: 100%;
+  max-width: calc(400px + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: var(--s8) var(--gutter) var(--s9);
+}
+
+.loginsignup-subtitle {
+  margin-top: var(--s3);
+  color: var(--ink-2);
+}
+
+.loginsignup-form {
+  display: grid;
+  gap: var(--s4);
+  margin-top: var(--s6);
+}
+
+.loginsignup-form .btn {
+  margin-top: var(--s2);
+}
+
+.loginsignup-switch {
+  margin-top: var(--s5);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+}
+
+.loginsignup-switch .link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+@media (max-width: 719px) {
+  .loginsignup {
+    padding-block: var(--s7) var(--s8);
+  }
+}

@@ -1,0 +1,71 @@
+.descriptionbox {
+  border-bottom: 1px solid var(--line);
+}
+
+.descriptionbox details {
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 88px;
+}
+
+.descriptionbox summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.descriptionbox summary::-webkit-details-marker {
+  display: none;
+}
+
+.descriptionbox summary::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.descriptionbox details[open] > summary::after {
+  content: "\2212";
+}
+
+.descriptionbox-body {
+  display: grid;
+  gap: var(--s3);
+  padding-bottom: var(--s5);
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.descriptionbox-list {
+  gap: var(--s2);
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.size-table th,
+.size-table td {
+  padding: var(--s2) var(--s3) var(--s2) 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.size-table th {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.size-table tbody tr:last-child td {
+  border-bottom: 0;
+}

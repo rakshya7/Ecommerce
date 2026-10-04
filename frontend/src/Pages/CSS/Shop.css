@@ -1,0 +1,58 @@
+/* Typographic index of the three departments, with live style counts. */
+.category-index {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+}
+
+.category-index-link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  padding: var(--s5) var(--s5) var(--s5) 0;
+  text-decoration: none;
+}
+
+.category-index-link + .category-index-link {
+  padding-left: var(--s5);
+  border-left: 1px solid var(--line);
+}
+
+.category-index-name {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.category-index-count {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.category-index-link .icon {
+  align-self: center;
+  margin-left: auto;
+  transition: transform var(--ease);
+}
+
+.category-index-link:hover .icon {
+  transform: translateX(4px);
+}
+
+.category-index-link:hover .category-index-name {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 719px) {
+  .category-index {
+    grid-template-columns: minmax(0, 1fr);
+    border-bottom: 0;
+  }
+
+  .category-index-link,
+  .category-index-link + .category-index-link {
+    padding: var(--s4) 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}

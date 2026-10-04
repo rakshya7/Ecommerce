@@ -1,0 +1,38 @@
+.breadcrum {
+  padding-block: var(--s4);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.breadcrum ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s2);
+}
+
+.breadcrum li + li::before {
+  content: "/";
+  margin-right: var(--s2);
+  color: var(--line-strong);
+}
+
+.breadcrum a {
+  text-decoration: none;
+}
+
+.breadcrum a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrum [aria-current="page"] {
+  color: var(--ink);
+}
+
+/* on small screens the product name is the heading directly below */
+@media (max-width: 719px) {
+  .breadcrum [aria-current="page"] {
+    display: none;
+  }
+}

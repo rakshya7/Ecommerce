@@ -1,0 +1,53 @@
+/* The one dark band on the home page. */
+.offers {
+  overflow: hidden;
+  background: var(--ink);
+  color: #fff;
+}
+
+.offers-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: var(--s6);
+}
+
+.offers-copy {
+  align-self: center;
+  padding-block: var(--s8);
+}
+
+.offers-title {
+  max-width: 10em;
+  font-size: clamp(2.5rem, 5.4vw, 4.5rem);
+}
+
+.offers-text {
+  margin-block: var(--s4) var(--s6);
+  font-size: 1.0625rem;
+  color: #c9c9ce;
+}
+
+/* the photo is cropped on its right side, so it runs off the edge of the band */
+.offers-image {
+  justify-self: end;
+  width: 100%;
+  max-width: 560px;
+  margin-top: var(--s6);
+  margin-right: calc(-1 * var(--edge));
+}
+
+@media (max-width: 859px) {
+  .offers-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .offers-copy {
+    padding-block: var(--s7) 0;
+  }
+
+  .offers-image {
+    max-width: 340px;
+  }
+}

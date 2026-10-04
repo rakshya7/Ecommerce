@@ -1,0 +1,42 @@
+.newsletter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4) var(--s7);
+  padding-block: var(--s7);
+  border-top: 1px solid var(--line);
+}
+
+.newsletter-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.newsletter-text {
+  margin-top: var(--s1);
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.newsletter-form {
+  display: flex;
+  flex: 0 1 460px;
+  gap: var(--s2);
+}
+
+.newsletter-form .input {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 719px) {
+  .newsletter {
+    padding-block: var(--s6);
+  }
+
+  .newsletter-form {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,60 @@
+/* The studio-grey band is the set; the cut-out photo stands on its bottom edge. */
+.hero {
+  overflow: hidden;
+  background: var(--tile);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: end;
+  gap: var(--s6);
+}
+
+.hero-copy {
+  align-self: center;
+  padding-block: var(--s8);
+}
+
+.hero-title {
+  max-width: 9em;
+  font-size: clamp(3rem, 7.4vw, 6.5rem);
+  line-height: 0.9;
+}
+
+.hero-text {
+  max-width: 40ch;
+  margin-top: var(--s5);
+  font-size: 1.125rem;
+  color: var(--ink-2);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  margin-top: var(--s6);
+}
+
+.hero-image {
+  justify-self: end;
+  width: 100%;
+  max-width: 580px;
+  margin-top: var(--s5);
+}
+
+@media (max-width: 859px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .hero-copy {
+    padding-block: var(--s7) 0;
+  }
+
+  .hero-image {
+    justify-self: center;
+    max-width: 360px;
+  }
+}

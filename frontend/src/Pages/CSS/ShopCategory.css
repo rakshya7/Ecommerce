@@ -1,0 +1,44 @@
+.shop-category {
+  padding-block: var(--s7) var(--s8);
+}
+
+.shop-category-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s4) var(--s5);
+  margin-bottom: var(--s5);
+}
+
+.shop-category-count {
+  margin-top: var(--s2);
+  color: var(--muted);
+}
+
+.shop-category-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.shop-category-sort .label {
+  white-space: nowrap;
+}
+
+.shop-category-sort .select {
+  width: auto;
+  min-width: 190px;
+  font-size: 15px;
+}
+
+@media (max-width: 719px) {
+  .shop-category {
+    padding-block: var(--s6) var(--s7);
+  }
+
+  /* keep 16px on touch devices so iOS doesn't zoom the page on focus */
+  .shop-category-sort .select {
+    font-size: 16px;
+  }
+}

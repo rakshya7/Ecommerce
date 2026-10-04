@@ -1,0 +1,159 @@
+.add-product {
+  max-width: 880px;
+}
+
+.add-product-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--s2);
+  font-weight: 500;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.add-product-back:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* details on the left, image on the right, actions along the bottom */
+.add-product-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  grid-template-areas:
+    "fields image"
+    "actions actions";
+  gap: var(--s5) var(--s6);
+  padding: var(--s5);
+}
+
+.add-product-fields {
+  grid-area: fields;
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+}
+
+.add-product-category {
+  width: 180px;
+}
+
+.add-product-prices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s4);
+}
+
+.add-product-prices .input {
+  font-variant-numeric: tabular-nums;
+}
+
+.add-product-image {
+  grid-area: image;
+}
+
+/* The same square studio tile the storefront shows products on. */
+.dropzone {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--tile);
+  transition: border-color var(--ease);
+}
+
+.dropzone:hover {
+  border-color: var(--ink);
+}
+
+.dropzone:focus-within {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.dropzone--invalid {
+  border-color: var(--red);
+}
+
+.dropzone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dropzone img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.dropzone:has(img) {
+  border-style: solid;
+  border-color: var(--line);
+}
+
+.dropzone-empty {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--s2);
+  height: 100%;
+  padding: var(--s4);
+  text-align: center;
+  color: var(--ink-2);
+}
+
+.add-product-image-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.add-product-remove {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.add-product-actions {
+  grid-area: actions;
+  display: flex;
+  gap: var(--s2);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 859px) {
+  .add-product-form {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "fields"
+      "image"
+      "actions";
+    padding: var(--s4);
+  }
+
+  .dropzone {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 719px) {
+  .add-product-category {
+    width: 100%;
+  }
+
+  .add-product-actions .btn {
+    flex: 1;
+    min-height: 44px;
+  }
+}

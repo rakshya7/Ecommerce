@@ -1,0 +1,475 @@
+/* StepStyle admin: the storefront's tokens (frontend/src/index.css) at a denser scale,
+   plus the shared UI primitives used across admin screens. */
+
+:root {
+  /* Colour */
+  --ink: #17171a;
+  --ink-hover: #303036;
+  --ink-2: #46464c;
+  --muted: #66666e;
+  --line: #e3e3df;
+  --line-strong: #c9c9c4;
+  --surface: #fff;
+  --tile: #f1f1ee; /* studio grey behind product imagery */
+  --subtle: #f7f7f5;
+  --red: #c91623; /* sale prices, destructive actions, errors */
+  --red-dark: #a8111c;
+  --red-tint: #fbeced;
+  --green: #1a7f47;
+  --green-tint: #e9f5ee;
+  --amber: #8a5a00;
+  --amber-tint: #fdf3d8;
+  --blue: #1d5fbf;
+  --blue-tint: #eaf1fb;
+
+  /* Type */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display-stretch: 68%;
+
+  /* Space, 4px base */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+
+  --radius: 6px;
+  --radius-lg: 8px;
+  --control: 36px;
+  --ease: 140ms ease-out;
+}
+
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--subtle);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.icon {
+  flex: none;
+}
+
+.link {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Brand lockup */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 34px;
+  height: auto;
+}
+
+.brand-name {
+  font-stretch: var(--display-stretch);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* set inside the wordmark so the two share a baseline */
+.brand-tag {
+  margin-left: 2px;
+  font-stretch: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* Page scaffolding */
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s3) var(--s4);
+  margin-bottom: var(--s5);
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.page-subtitle {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: var(--control);
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--ease), border-color var(--ease), color var(--ease);
+}
+
+.btn--primary {
+  background: var(--ink);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--ink-hover);
+}
+
+.btn--primary:active {
+  background: #000;
+}
+
+.btn--secondary {
+  border-color: var(--line-strong);
+  background: var(--surface);
+}
+
+.btn--secondary:hover {
+  border-color: var(--ink);
+}
+
+.btn--secondary:active {
+  background: var(--tile);
+}
+
+.btn--danger {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn--danger:hover {
+  background: var(--red-dark);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* square icon-only action */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--ink-2);
+  transition: background-color var(--ease), color var(--ease);
+}
+
+.icon-btn:hover {
+  background: var(--tile);
+  color: var(--ink);
+}
+
+.icon-btn--danger:hover {
+  background: var(--red-tint);
+  color: var(--red);
+}
+
+/* Form fields */
+
+.field {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.label-note {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.input,
+.select {
+  width: 100%;
+  min-height: var(--control);
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  transition: border-color var(--ease);
+}
+
+.input::placeholder {
+  color: var(--muted);
+}
+
+.input:hover,
+.select:hover {
+  border-color: var(--muted);
+}
+
+.input:focus-visible,
+.select:focus-visible {
+  border-color: var(--ink);
+  outline-offset: 0;
+}
+
+.input[aria-invalid="true"] {
+  border-color: var(--red);
+}
+
+.select {
+  appearance: none;
+  padding-right: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2317171a' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.field-error {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--red);
+}
+
+/* 16px inputs on touch screens stop iOS zooming the page on focus */
+@media (max-width: 719px) {
+  .input,
+  .select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+}
+
+/* Notices: inline feedback. Each variant pairs its colour with an icon. */
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s2);
+  margin-bottom: var(--s4);
+  padding: 10px var(--s3);
+  border-radius: var(--radius);
+  background: var(--blue-tint);
+}
+
+.notice .icon {
+  margin-top: 1px;
+  color: var(--blue);
+}
+
+.notice-text {
+  flex: 1;
+}
+
+.notice a {
+  font-weight: 600;
+}
+
+.notice--success {
+  background: var(--green-tint);
+}
+
+.notice--success .icon {
+  color: var(--green);
+}
+
+.notice--error {
+  background: var(--red-tint);
+}
+
+.notice--error .icon {
+  color: var(--red);
+}
+
+.notice--warning {
+  background: var(--amber-tint);
+}
+
+.notice--warning .icon {
+  color: var(--amber);
+}
+
+.notice-dismiss {
+  width: 24px;
+  height: 24px;
+  margin: -2px -4px -2px 0;
+}
+
+.notice .notice-dismiss .icon {
+  margin-top: 0;
+  color: inherit;
+}
+
+/* Product thumbnail: the storefront's studio tile, small */
+
+.thumb {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 4px;
+  background: var(--tile);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* Empty and error states */
+
+.empty {
+  padding: var(--s7) var(--s5);
+  text-align: center;
+}
+
+.empty-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.empty-text {
+  margin-top: var(--s1);
+  color: var(--muted);
+}
+
+.empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s2);
+  margin-top: var(--s4);
+}
+
+/* Loading */
+
+.skeleton {
+  border-radius: 4px;
+  background: var(--tile);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton {
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.55;
+  }
+}

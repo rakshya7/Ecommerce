@@ -1,0 +1,22 @@
+.admin {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 1200px;
+  padding: var(--s6);
+}
+
+/* the sidebar becomes a top bar */
+@media (max-width: 859px) {
+  .admin {
+    display: block;
+  }
+
+  .admin-main {
+    padding: var(--s5) var(--s4) var(--s7);
+  }
+}
